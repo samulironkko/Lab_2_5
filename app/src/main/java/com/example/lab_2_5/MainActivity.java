@@ -2,6 +2,8 @@ package com.example.lab_2_5;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,6 +19,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.swe_button).setOnClickListener(this);
         findViewById(R.id.fi_button).setOnClickListener(this);
         findViewById(R.id.su_button).setOnClickListener(this);
+
+        final TextView textField = findViewById(R.id.textView);
+
+        final EditText editor = findViewById(R.id.text_editor);
+        editor.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String text = editor.getText().toString();
+                textField.setText(text);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
     }
@@ -45,4 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textField.setText("Hola " + name);
         }
     }
+
+
 }
