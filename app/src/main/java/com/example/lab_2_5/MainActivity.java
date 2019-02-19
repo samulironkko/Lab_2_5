@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    String greeting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String text = editor.getText().toString();
-                textField.setText(text);
+                textField.setText(greeting + " " + text);
             }
 
             @Override
@@ -57,15 +59,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view.getId() == R.id.eng_button){
             textField.setText("Hi " + name);
+            greeting = "Hi";
         }
         else if (view.getId() == R.id.swe_button){
             textField.setText("Hejjsan " + name);
+            greeting = "Hejjsan";
         }
         else if (view.getId() == R.id.fi_button){
             textField.setText("Terve " + name);
+            greeting = "Terve";
         }
         else if (view.getId() == R.id.su_button){
             textField.setText("Hola " + name);
+            greeting = "Hola";
         }
     }
 
